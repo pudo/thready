@@ -1,5 +1,5 @@
 from Queue import Queue
-from threading import Thread
+import threading
 import logging
 
 log = logging.getLogger(__name__)
@@ -25,4 +25,5 @@ def threaded(items, func, num_threads=5, max_queue=200):
     for item in items:
         queue.put(item, True)
 
-    queue.join()
+    if queue is not threading.currentThread():
+        queue.join()
