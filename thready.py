@@ -13,6 +13,10 @@ def threaded(items, func, num_threads=5, max_queue=200):
                 func(item)
             except Exception, e:
                 log.exception(e)
+            except KeyboardInterrupt:
+                raise
+            except:
+                pass
             finally:
                 queue.task_done()
 

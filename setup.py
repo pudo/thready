@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='thready',
-    version='0.1.1',
+    version='0.1.2',
     description="Simple wrapper for threaded execution.",
     long_description="",
     classifiers=[],
