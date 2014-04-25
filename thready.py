@@ -1,4 +1,7 @@
-from Queue import Queue
+try:
+    from queue import Queue
+except ImportError:
+    from Queue import Queue
 from threading import Thread
 import logging
 
@@ -11,7 +14,7 @@ def threaded(items, func, num_threads=5, max_queue=200):
             try:
                 item = queue.get(True)
                 func(item)
-            except Exception, e:
+            except Exception as e:
                 log.exception(e)
             except KeyboardInterrupt:
                 raise
