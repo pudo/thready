@@ -56,4 +56,7 @@ def threaded(items, func, num_threads=5, max_queue=200, join=True,
         queue.put(item, True)
 
     if join:
-        queue.join()
+        try:
+            queue.join()
+        except KeyboardInterrupt:
+            pass
